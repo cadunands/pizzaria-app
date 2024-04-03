@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Styles.css";
+import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({ onLogin }) {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -15,6 +15,8 @@ function LoginForm() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// Aqui você pode adicionar lógica de autenticação, por enquanto apenas chame a função onLogin
+		onLogin();
 	};
 
 	return (
