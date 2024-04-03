@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import LoginForm from "./LoginForm/LoginForm"; // Importe o componente LoginForm
+import LoginForm from "./LoginForm/LoginForm";
+import PizzaList from "./PizzaList/PizzaList";
 
 function App() {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	const handleLogin = () => {
+		setIsLoggedIn(true);
+	};
+
 	return (
 		<div className="App">
 			<header className="App-header">
-				<LoginForm />
+				{!isLoggedIn ? (
+					<LoginForm onLogin={handleLogin} />
+				) : (
+					<PizzaList />
+				)}
 			</header>
 		</div>
 	);
